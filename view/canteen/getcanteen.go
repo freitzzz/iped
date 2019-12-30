@@ -16,8 +16,14 @@ type GetAvailableCanteensModelView []struct {
 // for the detailed canteen information functionality
 // See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/canteens.md#detailed-canteen-information
 type GetDetailedCanteenInformationModelView struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
+	ID       int               `json:"id"`
+	Name     string            `json:"name"`
+	Location getLocationStruct `json:"location"`
+}
+
+type getLocationStruct struct {
+	Latitude  float32 `json:"latitude"`
+	Longitude float32 `json:"longitude"`
 }
 
 // ToGetAvailableCanteensModelView creates a GetAvailableCanteensModelView using a slice of canteen models
@@ -36,7 +42,16 @@ func ToGetAvailableCanteensModelView(canteens []canteen.Canteen) GetAvailableCan
 // ToGetDetailedCanteenInformationModelView creates a GetDetailedCanteenInformationModelView using a canteen model
 func ToGetDetailedCanteenInformationModelView(canteen canteen.Canteen) GetDetailedCanteenInformationModelView {
 
-	modelview := GetDetailedCanteenInformationModelView{ID: int(canteen.ID), Name: canteen.Name}
+	location := getLocationStruct{}
+
+	location.Latitude = canteen.Location.Latitude
+	location.Longitude = canteen.Location.Longitude
+
+	modelview := GetDetailedCanteenInformationModelView{
+		ID:       int(canteen.ID),
+		Name:     canteen.Name,
+		Location: location,
+	}
 
 	return modelview
 }
