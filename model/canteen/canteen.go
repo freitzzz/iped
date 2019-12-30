@@ -32,15 +32,19 @@ type MenuEntry struct {
 
 // Location struct identifies the geographical location of a canteen
 type Location struct {
+	gorm.Model
+	CanteenID uint `gorm:"type:int REFERENCES canteens(id) ON UPDATE CASCADE ON DELETE CASCADE"`
 	Latitude  float32
 	Longitude float32
 }
 
 // New initializes a Canteen model using its name
 // A FieldError is returned if the canteen name is empty
-func New(Name string, Location Location) (Canteen, *customerror.FieldError) {
+func New(Name string, CanteenLocation Location) (Canteen, *customerror.FieldError) {
 
-	canteen := Canteen{gorm.Model{}, 0, Name, []MenuEntry{}, Location}
+	_location := Location{gorm.Model{}, 0, CanteenLocation.Latitude, CanteenLocation.Longitude}
+
+	canteen := Canteen{gorm.Model{}, 0, Name, []MenuEntry{}, _location}
 
 	err := grantCanteenNameIsNotEmpty(Name)
 

@@ -72,6 +72,14 @@ func DetailedCanteenInformation(c echo.Context) error {
 		return c.NoContent(http.StatusNotFound)
 	}
 
+	_location := canteen.Location{}
+
+	_location.CanteenID = _canteen.ID
+
+	db.Where(&_location).First(&_location)
+
+	_canteen.Location = _location
+
 	modelview := view.ToGetDetailedCanteenInformationModelView(_canteen)
 
 	return c.JSON(http.StatusOK, modelview)
@@ -134,6 +142,8 @@ func CreateNewCanteen(c echo.Context) error {
 	_canteen.Name = canteen.Name
 
 	db.Where(&_canteen).First(&_canteen)
+
+	_canteen.Location = location
 
 	modelviewres := view.ToGetDetailedCanteenInformationModelView(_canteen)
 
