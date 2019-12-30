@@ -1,13 +1,13 @@
 package menu
 
 import (
-	"github.com/ipp-ementa/iped/model/customerror"
-	"github.com/ipp-ementa/iped/model/dish"
+	"github.com/freitzzz/iped/model/customerror"
+	"github.com/freitzzz/iped/model/dish"
 	"github.com/jinzhu/gorm"
 )
 
 // Menu is a model that contains a set of dishes available at either lunch or dinner
-// A UML overview of this model can be found at https://github.com/ipp-ementa/iped-documentation/wiki/Architecture#models-structure
+// A UML overview of this model can be found at https://github.com/freitzzz/iped-documentation/wiki/Architecture#models-structure
 type Menu struct {
 	gorm.Model
 	MenuEntryID uint `gorm:"type:int REFERENCES menu_entries(id) ON UPDATE CASCADE ON DELETE CASCADE"`

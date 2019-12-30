@@ -3,7 +3,7 @@ package customerror
 import (
 	"fmt"
 
-	"github.com/ipp-ementa/iped/model/customerror"
+	"github.com/freitzzz/iped/model/customerror"
 )
 
 // ErrorMessageModelView is a modelview that displays an error message to the consumer

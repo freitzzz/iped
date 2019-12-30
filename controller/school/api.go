@@ -4,20 +4,20 @@ import (
 	"net/http"
 	"strconv"
 
-	customerrormodel "github.com/ipp-ementa/iped/model/customerror"
-	customerrorview "github.com/ipp-ementa/iped/view/customerror"
+	customerrormodel "github.com/freitzzz/iped/model/customerror"
+	customerrorview "github.com/freitzzz/iped/view/customerror"
 
-	"github.com/ipp-ementa/iped/model/canteen"
+	"github.com/freitzzz/iped/model/canteen"
 
-	model "github.com/ipp-ementa/iped/model/school"
-	view "github.com/ipp-ementa/iped/view/school"
+	model "github.com/freitzzz/iped/model/school"
+	view "github.com/freitzzz/iped/view/school"
 
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 )
 
 // AvailableSchools handles GET /schools functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/schools.md#available-schools
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/schools.md#available-schools
 func AvailableSchools(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)
@@ -43,7 +43,7 @@ func AvailableSchools(c echo.Context) error {
 }
 
 // DetailedSchoolInformation handles GET /schools/:id functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/schools.md#detailed-school-information
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/schools.md#detailed-school-information
 func DetailedSchoolInformation(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)
@@ -75,7 +75,7 @@ func DetailedSchoolInformation(c echo.Context) error {
 }
 
 // CreateNewSchool handles POST /schools functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/schools.md#create-a-new-school
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/schools.md#create-a-new-school
 func CreateNewSchool(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)
@@ -91,7 +91,14 @@ func CreateNewSchool(c echo.Context) error {
 	canteens := make([]canteen.Canteen, len(modelview.Canteens))
 
 	for index := range modelview.Canteens {
-		canteen, cerr := canteen.New(modelview.Canteens[index].Name)
+
+		location := canteen.Location{}
+
+		location.Latitude = modelview.Canteens[index].Location.Latitude
+
+		location.Longitude = modelview.Canteens[index].Location.Longitude
+
+		canteen, cerr := canteen.New(modelview.Canteens[index].Name, location)
 		if cerr != nil {
 
 			modelview := customerrorview.UsingFieldErrorToErrorMessageModelView(*cerr)

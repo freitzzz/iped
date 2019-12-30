@@ -6,12 +6,12 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/ipp-ementa/iped/controller/canteen"
-	"github.com/ipp-ementa/iped/controller/db"
-	"github.com/ipp-ementa/iped/controller/dish"
-	"github.com/ipp-ementa/iped/controller/menu"
-	"github.com/ipp-ementa/iped/controller/middleware"
-	"github.com/ipp-ementa/iped/controller/school"
+	"github.com/freitzzz/iped/controller/canteen"
+	"github.com/freitzzz/iped/controller/db"
+	"github.com/freitzzz/iped/controller/dish"
+	"github.com/freitzzz/iped/controller/menu"
+	"github.com/freitzzz/iped/controller/middleware"
+	"github.com/freitzzz/iped/controller/school"
 	"github.com/labstack/echo"
 )
 

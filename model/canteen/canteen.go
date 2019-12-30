@@ -6,18 +6,19 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github.com/ipp-ementa/iped/model/customerror"
-	"github.com/ipp-ementa/iped/model/menu"
+	"github.com/freitzzz/iped/model/customerror"
+	"github.com/freitzzz/iped/model/menu"
 )
 
 // Canteen is a model that has the responsibility to inform the user which menus are available at the time
 // A canteen has a unique name and is offered by a school
-// A UML overview of this model can be found at https://github.com/ipp-ementa/iped-documentation/wiki/Architecture#models-structure
+// A UML overview of this model can be found at https://github.com/freitzzz/iped-documentation/wiki/Architecture#models-structure
 type Canteen struct {
 	gorm.Model
 	SchoolID uint `gorm:"type:int REFERENCES schools(id) ON UPDATE CASCADE ON DELETE CASCADE"`
 	Name     string
 	MenusMap []MenuEntry
+	Location Location
 }
 
 // MenuEntry struct is an entry to canteen menus map
@@ -29,11 +30,17 @@ type MenuEntry struct {
 	Menus     []menu.Menu
 }
 
+// Location struct identifies the geographical location of a canteen
+type Location struct {
+	Latitude  float32
+	Longitude float32
+}
+
 // New initializes a Canteen model using its name
 // A FieldError is returned if the canteen name is empty
-func New(Name string) (Canteen, *customerror.FieldError) {
+func New(Name string, Location Location) (Canteen, *customerror.FieldError) {
 
-	canteen := Canteen{gorm.Model{}, 0, Name, []MenuEntry{}}
+	canteen := Canteen{gorm.Model{}, 0, Name, []MenuEntry{}, Location}
 
 	err := grantCanteenNameIsNotEmpty(Name)
 

@@ -4,20 +4,20 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ipp-ementa/iped/model/school"
+	"github.com/freitzzz/iped/model/school"
 
-	"github.com/ipp-ementa/iped/model/canteen"
-	customerrorview "github.com/ipp-ementa/iped/view/customerror"
+	"github.com/freitzzz/iped/model/canteen"
+	customerrorview "github.com/freitzzz/iped/view/customerror"
 
-	model "github.com/ipp-ementa/iped/model/canteen"
-	view "github.com/ipp-ementa/iped/view/canteen"
+	model "github.com/freitzzz/iped/model/canteen"
+	view "github.com/freitzzz/iped/view/canteen"
 
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 )
 
 // AvailableCanteens handles GET /canteens functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/canteens.md#available-canteens
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/canteens.md#available-canteens
 func AvailableCanteens(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB) //schools/:id/canteens
@@ -47,7 +47,7 @@ func AvailableCanteens(c echo.Context) error {
 }
 
 // DetailedCanteenInformation handles GET /canteens/:id functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/canteens.md#detailed-canteen-information
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/canteens.md#detailed-canteen-information
 func DetailedCanteenInformation(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)
@@ -79,7 +79,7 @@ func DetailedCanteenInformation(c echo.Context) error {
 }
 
 // CreateNewCanteen handles POST /canteens functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/canteens.md#create-a-new-canteen
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/canteens.md#create-a-new-canteen
 func CreateNewCanteen(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)
@@ -92,7 +92,13 @@ func CreateNewCanteen(c echo.Context) error {
 
 	c.Bind(&modelview)
 
-	canteen, serr := model.New(modelview.Name)
+	location := model.Location{}
+
+	location.Latitude = modelview.Location.Latitude
+
+	location.Longitude = modelview.Location.Longitude
+
+	canteen, serr := model.New(modelview.Name, location)
 
 	if serr != nil {
 

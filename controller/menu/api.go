@@ -4,21 +4,21 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ipp-ementa/iped/model/dish"
+	"github.com/freitzzz/iped/model/dish"
 
-	"github.com/ipp-ementa/iped/model/canteen"
+	"github.com/freitzzz/iped/model/canteen"
 
-	customerrorview "github.com/ipp-ementa/iped/view/customerror"
+	customerrorview "github.com/freitzzz/iped/view/customerror"
 
-	model "github.com/ipp-ementa/iped/model/menu"
-	view "github.com/ipp-ementa/iped/view/menu"
+	model "github.com/freitzzz/iped/model/menu"
+	view "github.com/freitzzz/iped/view/menu"
 
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 )
 
 // AvailableMenus handles GET /menus functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/menus.md#available-menus
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/menus.md#available-menus
 func AvailableMenus(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB) //schools/:id/menus
@@ -58,7 +58,7 @@ func AvailableMenus(c echo.Context) error {
 }
 
 // DetailedMenuInformation handles GET /menus/:id functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/menus.md#detailed-menu-information
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/menus.md#detailed-menu-information
 func DetailedMenuInformation(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)
@@ -116,7 +116,7 @@ func DetailedMenuInformation(c echo.Context) error {
 }
 
 // CreateNewMenu handles POST /menus functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/menus.md#create-a-new-menu
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/menus.md#create-a-new-menu
 func CreateNewMenu(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)

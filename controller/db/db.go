@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ipp-ementa/iped/model/canteen"
-	"github.com/ipp-ementa/iped/model/dish"
-	"github.com/ipp-ementa/iped/model/menu"
-	"github.com/ipp-ementa/iped/model/school"
+	"github.com/freitzzz/iped/model/canteen"
+	"github.com/freitzzz/iped/model/dish"
+	"github.com/freitzzz/iped/model/menu"
+	"github.com/freitzzz/iped/model/school"
 
 	"github.com/jinzhu/gorm"
 	// Requires to import sqlite dialect package to use and open sqlite3 database

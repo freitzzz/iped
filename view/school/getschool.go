@@ -3,14 +3,14 @@ package school
 import (
 	"strings"
 
-	"github.com/ipp-ementa/iped/model/school"
+	"github.com/freitzzz/iped/model/school"
 )
 
 // This file contains model views representation for GET functionalities of schools collection
 
 // GetAvailableSchoolsModelView is the model view representation
 // for the available schools functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/schools.md#available-schools
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/schools.md#available-schools
 type GetAvailableSchoolsModelView []struct {
 	ID      int    `json:"id"`
 	Acronym string `json:"acronym"`
@@ -19,7 +19,7 @@ type GetAvailableSchoolsModelView []struct {
 
 // GetDetailedSchoolInformationModelView is the model view representation
 // for the detailed school information functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/schools.md#detailed-school-information
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/schools.md#detailed-school-information
 type GetDetailedSchoolInformationModelView struct {
 	ID       int                   `json:"id"`
 	Acronym  string                `json:"acronym"`

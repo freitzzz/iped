@@ -3,7 +3,7 @@ package menu
 import (
 	"testing"
 
-	"github.com/ipp-ementa/iped/model/dish"
+	"github.com/freitzzz/iped/model/dish"
 )
 
 func TestUnexistingMenuTypeReturnError(t *testing.T) {

@@ -3,7 +3,7 @@ package school
 import (
 	"testing"
 
-	"github.com/ipp-ementa/iped/model/canteen"
+	"github.com/freitzzz/iped/model/canteen"
 )
 
 func TestEmptySchoolAcronymReturnError(t *testing.T) {

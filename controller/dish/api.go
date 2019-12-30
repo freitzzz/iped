@@ -4,19 +4,19 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ipp-ementa/iped/model/menu"
+	"github.com/freitzzz/iped/model/menu"
 
-	"github.com/ipp-ementa/iped/model/canteen"
+	"github.com/freitzzz/iped/model/canteen"
 
-	model "github.com/ipp-ementa/iped/model/dish"
-	view "github.com/ipp-ementa/iped/view/dish"
+	model "github.com/freitzzz/iped/model/dish"
+	view "github.com/freitzzz/iped/view/dish"
 
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 )
 
 // AvailableDishes handles GET /dishes functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/dishes.md#available-dishes
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/dishes.md#available-dishes
 func AvailableDishes(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)
@@ -80,7 +80,7 @@ func AvailableDishes(c echo.Context) error {
 }
 
 // DetailedDishInformation handles GET /dishes/:id functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/dishes.md#detailed-dish-information
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/dishes.md#detailed-dish-information
 func DetailedDishInformation(c echo.Context) error {
 
 	db, ok := c.Get("db").(*gorm.DB)

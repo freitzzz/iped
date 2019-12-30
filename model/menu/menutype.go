@@ -3,7 +3,7 @@ package menu
 import "strings"
 
 // MenuType is a enum representation of a menu type
-// A UML overview of this enum can be found at https://github.com/ipp-ementa/iped-documentation/wiki/Architecture#models-structure
+// A UML overview of this enum can be found at https://github.com/freitzzz/iped-documentation/wiki/Architecture#models-structure
 type MenuType int
 
 // A menu is either available at lunch or dinner

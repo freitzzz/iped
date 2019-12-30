@@ -4,7 +4,7 @@ package canteen
 
 // CreateNewCanteenModelView is the model view representation
 // for the create new canteen functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/canteens.md#create-a-new-canteen
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/canteens.md#create-a-new-canteen
 type CreateNewCanteenModelView struct {
 	Name     string             `json:"name"`
 	Location postlocationStruct `json:"location"`

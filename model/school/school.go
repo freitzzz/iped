@@ -6,13 +6,13 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github.com/ipp-ementa/iped/model/canteen"
-	"github.com/ipp-ementa/iped/model/customerror"
+	"github.com/freitzzz/iped/model/canteen"
+	"github.com/freitzzz/iped/model/customerror"
 )
 
 // School is a model that offers canteens
 // A school has a unique acronym, a descriptive name and needs to offer at least one canteen
-// A UML overview of this model can be found at https://github.com/ipp-ementa/iped-documentation/wiki/Architecture#models-structure
+// A UML overview of this model can be found at https://github.com/freitzzz/iped-documentation/wiki/Architecture#models-structure
 type School struct {
 	gorm.Model
 	Acronym       string `gorm:"UNIQUE"`

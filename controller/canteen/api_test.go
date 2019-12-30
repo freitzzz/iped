@@ -7,12 +7,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ipp-ementa/iped/model/school"
+	"github.com/freitzzz/iped/model/school"
 
-	"github.com/ipp-ementa/iped/model/canteen"
-	model "github.com/ipp-ementa/iped/model/canteen"
+	"github.com/freitzzz/iped/model/canteen"
+	model "github.com/freitzzz/iped/model/canteen"
 
-	"github.com/ipp-ementa/iped/controller/db"
+	"github.com/freitzzz/iped/controller/db"
 
 	"github.com/labstack/echo"
 )

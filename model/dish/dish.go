@@ -5,11 +5,11 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github.com/ipp-ementa/iped/model/customerror"
+	"github.com/freitzzz/iped/model/customerror"
 )
 
 // Dish is a model for what a person can choose to eat in canteen
-// A UML overview of this model can be found at https://github.com/ipp-ementa/iped-documentation/wiki/Architecture#models-structure
+// A UML overview of this model can be found at https://github.com/freitzzz/iped-documentation/wiki/Architecture#models-structure
 type Dish struct {
 	gorm.Model
 	// MenuID field is a foreign key so gorm is able to map a has may association between menu and dish

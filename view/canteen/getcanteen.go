@@ -1,12 +1,12 @@
 package canteen
 
-import "github.com/ipp-ementa/iped/model/canteen"
+import "github.com/freitzzz/iped/model/canteen"
 
 // This file contains model views representation for GET functionalities of canteens collection
 
 // GetAvailableCanteensModelView is the model view representation
 // for the available canteens functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/canteens.md#available-canteens
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/canteens.md#available-canteens
 type GetAvailableCanteensModelView []struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
@@ -14,7 +14,7 @@ type GetAvailableCanteensModelView []struct {
 
 // GetDetailedCanteenInformationModelView is the model view representation
 // for the detailed canteen information functionality
-// See more info at: https://github.com/ipp-ementa/iped-documentation/blob/master/documentation/rest_api/canteens.md#detailed-canteen-information
+// See more info at: https://github.com/freitzzz/iped-documentation/blob/master/documentation/rest_api/canteens.md#detailed-canteen-information
 type GetDetailedCanteenInformationModelView struct {
 	ID       int               `json:"id"`
 	Name     string            `json:"name"`
